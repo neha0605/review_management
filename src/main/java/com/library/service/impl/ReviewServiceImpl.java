@@ -42,5 +42,10 @@ public class ReviewServiceImpl implements ReviewService {
         return reviewRepo.findByPropertyId(propertyId);
     }
 
+    @Override
+    public void deleteReview(Integer id) {
+        reviewRepo.delete(id);
+    }
+
 
 }

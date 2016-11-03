@@ -20,4 +20,6 @@ public interface ReviewService {
 
     List<Review> findReviewByPropertyId(int propertyId);
 
+    void deleteReview(Integer id);
+
 }

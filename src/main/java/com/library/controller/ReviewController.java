@@ -44,5 +44,14 @@ public class ReviewController extends BaseController {
     public List<Review> getReviewByPropertyId(@PathVariable int propertyId) {
         return reviewService.findReviewByPropertyId(propertyId);
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, headers = ACCEPT_JSON)
+    public ResponseEntity deleteReview(@PathVariable Integer id) {
+        if (id == null) {
+            return new ResponseEntity("review not found", HttpStatus.NOT_FOUND);
+        }
+        reviewService.deleteReview(id);
+        return new ResponseEntity("review deleted successfully", HttpStatus.OK);
+    }
 }
 
